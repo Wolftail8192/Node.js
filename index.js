@@ -26,7 +26,8 @@ fs.mkdir(path.join(__dirname, 'main/online'), (err)=>{
 fs.writeFileSync(path.join(__dirname,'main','inPerson','inPerson.txt'),'data',{})
 fs.writeFileSync(path.join(__dirname,'main','online','online.txt'),'data',{})
 
-data = onlineUsers;
+
 let onlineUsers = ['name', 'age', 'city'];
+data = onlineUsers;
 // let inPersonUsers = [{ name: "Andrii", age: 22, city: "Lviv" }]
 
