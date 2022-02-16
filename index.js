@@ -31,3 +31,6 @@ let onlineUsers = ['name', 'age', 'city'];
 data = onlineUsers;
 // let inPersonUsers = [{ name: "Andrii", age: 22, city: "Lviv" }]
 
+// JSON.stringify(onlineUsers)
+
+
