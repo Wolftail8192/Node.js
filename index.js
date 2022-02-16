@@ -17,14 +17,16 @@ fs.mkdir(path.join(__dirname, 'main/inPerson'), (err)=>{
     }
 })
 
+
 fs.mkdir(path.join(__dirname, 'main/online'), (err)=>{
     if (err){
         console.log(err);
     }
 })
-fs.writeFileSync(path.join(__dirname,'inPerson','inPerson.txt'),'name')
+fs.writeFileSync(path.join(__dirname,'main','inPerson','inPerson.txt'),'data',{})
+fs.writeFileSync(path.join(__dirname,'main','online','online.txt'),'data',{})
 
 
-// let onlineUsers = ['name', 'age', 'city'];
+let onlineUsers = ['name', 'age', 'city'];
 // let inPersonUsers = [{ name: "Andrii", age: 22, city: "Lviv" }]
 
