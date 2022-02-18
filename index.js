@@ -23,8 +23,8 @@ fs.mkdir(path.join(__dirname, 'main/online'), (err)=>{
         console.log(err);
     }
 })
-fs.writeFileSync(path.join(__dirname,'main','inPerson','inPerson.txt'),'' )
-fs.writeFileSync(path.join(__dirname,'main','online','online.txt'),'')
+// fs.writeFileSync(path.join(__dirname,'main','inPerson','inPerson.txt'),'' )
+// fs.writeFileSync(path.join(__dirname,'main','online','online.txt'),'')
 
 
 const onlineUsers = [
