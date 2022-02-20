@@ -27,6 +27,11 @@ app.set('view engine', '.hbs');
 app.engine('.hbs', engine({defaultLayout:false}));
 app.set('views', path.join(__dirname, 'static'));
 
+app.get('/login', (req,res)=>{
+    res.render('login')
+})
+
+
 app.listen(5100, () =>{
     console.log('Server has started on port 5100')
 })
