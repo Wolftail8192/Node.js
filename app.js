@@ -28,7 +28,7 @@ app.engine('.hbs', engine({defaultLayout:false}));
 app.set('views', path.join(__dirname, 'static'));
 
 const users = [];
-console.log(users);
+
 let error = '';
 
 app.get('/login', (req,res)=>{
@@ -57,7 +57,7 @@ app.get('/users', ({query},res)=>{
         if (query.age){
             usersArray = usersArray.filter(user => user.age === query.age)
         }
-        res.render('users, {users:usersArray}')
+        res.render('users', {users:usersArray});
 
         return;
     }
