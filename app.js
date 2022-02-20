@@ -27,11 +27,37 @@ app.set('view engine', '.hbs');
 app.engine('.hbs', engine({defaultLayout:false}));
 app.set('views', path.join(__dirname, 'static'));
 
+const users = [];
+let error = '';
+
 app.get('/login', (req,res)=>{
     res.render('login')
 })
 
+app.post('/login', ({body},res)=>{
+    const userExist = users.some(user=>user.email === body.email)
+    if (userExist){
+        error = 'User with this email exist';
+        res.redirect('/error');
+        return;
+    }
+
+    users.push({...body, id: users.length ? users[users.length-1].id +1:1});
+    res.redirect('/users');
+});
+
+app.get('/users', (req,res)=>{
+    res.render('users', {users});
+});
+
+app.get('/error', (req,res)=>{
+    res.render('error', {error});
+});
+
+app.use((req,res)=>{
+    res.render('notFound');
+});
 
 app.listen(5100, () =>{
-    console.log('Server has started on port 5100')
+    console.log('Server has started on port 5100');
 })
