@@ -28,6 +28,7 @@ app.engine('.hbs', engine({defaultLayout:false}));
 app.set('views', path.join(__dirname, 'static'));
 
 const users = [];
+console.log(users);
 let error = '';
 
 app.get('/login', (req,res)=>{
@@ -46,7 +47,21 @@ app.post('/login', ({body},res)=>{
     res.redirect('/users');
 });
 
-app.get('/users', (req,res)=>{
+app.get('/users', ({query},res)=>{
+
+    if (Object.keys(query).length){
+        let usersArray = [...users];
+        if (query.city){
+            usersArray = usersArray.filter(user => user.city === query.city)
+        }
+        if (query.age){
+            usersArray = usersArray.filter(user => user.age === query.age)
+        }
+        res.render('users, {users:usersArray}')
+
+        return;
+    }
+
     res.render('users', {users});
 });
 app.get('/users/:userId', ({params},res)=>{

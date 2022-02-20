@@ -8,7 +8,16 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body>
+<body class="wrapper">
 
+{{#each users}}
+<div class="user">
+    {{this.firstName}}
+    <br/>
+    {{this.lastName}}
+    <form class="form" action="/users/{{this.id}}"></form>
+    <input type="submit" value="info">
+</div>
+{{/each}}
 </body>
 </html>
