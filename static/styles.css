@@ -1,0 +1,9 @@
+.error{
+    background: cornflowerblue;
+    font-size: 80px;
+    color: red;
+    text-align: center;
+}
+.ui{
+    font-size: 40px;
+}

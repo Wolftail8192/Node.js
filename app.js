@@ -49,6 +49,17 @@ app.post('/login', ({body},res)=>{
 app.get('/users', (req,res)=>{
     res.render('users', {users});
 });
+app.get('/users/:userId', ({params},res)=>{
+    const user = users.find(user => user.id === +params.userId);
+    if (!user){
+        error = 'User with ID: ${params.userId} exist!'
+        res.redirect('/error');
+        return;
+    };
+
+    res.render('userInfo', {user});
+});
+
 
 app.get('/error', (req,res)=>{
     res.render('error', {error});
